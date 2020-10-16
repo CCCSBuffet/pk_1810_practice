@@ -23,3 +23,25 @@ Don't worry about the program terminating - just kill it when you're done lookin
 ### Source code
 
 DO NOT LOOK AT [THIS](./single_star.cpp) UNTIL YOU HAVE TRIED TO WRITE THE CODE YOURSELF!
+
+### Related projects
+
+* Multiple stars
+
+## Multiple stars
+
+This program is a little harder. Instead of a single asterisk animating, see if you can
+make a number of asterisks (in a row) animate - like a Cylon!
+
+![multiple](./multiple_stars.gif)
+
+as in:
+
+![Cylon](./cylon.gif)
+
+Use 8 stars.
+
+### Source code
+
+DO NOT LOOK AT [THIS](./multiple_stars.cpp) UNTIL YOU HAVE TRIED TO WRITE THE CODE YOURSELF!
+
