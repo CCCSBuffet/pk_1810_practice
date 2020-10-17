@@ -45,3 +45,5 @@ Use 8 stars.
 
 DO NOT LOOK AT [THIS](./multiple_stars.cpp) UNTIL YOU HAVE TRIED TO WRITE THE CODE YOURSELF!
 
+## Pop
+
