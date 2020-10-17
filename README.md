@@ -12,7 +12,7 @@ You'll learn:
 
 * how to force output to happen even before a new line character
 * how to overwrite a line on the console (rather than advancing to a new line)
-* how to delay your program's executation for a short while (for timing purposes)
+* how to delay your program's execution for a short while (for timing purposes)
 * usage of `cinttypes` which makes the specific flavor of an integer unambiguous
 
 ### Specification for single star
