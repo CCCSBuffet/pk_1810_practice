@@ -25,7 +25,7 @@ Don't worry about the program terminating - just kill it when you're done lookin
 
 No data structure is needed for this program as everything you need to do is based on a counter.
 
-You'll need this include files:
+You'll need these include files:
 
 ```c++
 #include <iostream>
