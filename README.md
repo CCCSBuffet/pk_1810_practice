@@ -15,8 +15,6 @@ You'll learn:
 * how to delay your program's execution for a short while (for timing purposes)
 * usage of `cinttypes` which makes the specific flavor of an integer unambiguous
 
-### Specification for single star
-
 Write a program that animates a single asterisk like this:
 
 ![star](./single_star.gif)
@@ -37,7 +35,7 @@ You'll need these include files:
 
 I used the features of `iomanip` to space out the animating asterisk.
 
-`cinttypes` contains aliases for integer types that are unambiguous. That is, when you say `int`, how big is it? Depends. Using `cinttypes` you can declare (examples, not complete):
+`cinttypes` contains aliases for integer types that are unambiguous. That is, when you say `int`, how big is it? Depends. Using `cinttypes` you can declare:
 
 | type | meaning | without cinttypes |
 | ---- | ------- | ----------------- |
@@ -123,6 +121,21 @@ The animation cycle is:
 * `'O'`
 * `' '` (i.e. repeat)
 
+One way of handling the advancement in the cycle of characters is with a `switch` statement. The transition from `' '` to `'.'` (based on a one-in-twenty) chance can be handled nicely right in the `' '` case.
+
+These are the include files I used:
+
+```c++
+#include <cinttypes>
+#include <chrono>
+#include <thread>
+#include <string>
+#include <vector>
+#include <ctime>
+```
+
+`<ctime>` is used to get access to the `time()` function which can be used to seed the old-style random number generator.
+
 ### Source code
 
 DO NOT LOOK AT [THIS](./fizzle.cpp) UNTIL YOU HAVE TRIED TO WRITE THE CODE YOURSELF! With that said, don't feel bad about taking a peek and reading the comments.
@@ -133,7 +146,7 @@ DO NOT LOOK AT [THIS](./fizzle.cpp) UNTIL YOU HAVE TRIED TO WRITE THE CODE YOURS
 
 ![walkies](./walkies.gif)
 
-The inter character delay in this one must be slower - I used 100 milliseconds.
+The inter-character delay in this one must be slower - I used 100 milliseconds.
 
 ### Source code
 
