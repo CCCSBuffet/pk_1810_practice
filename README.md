@@ -67,6 +67,7 @@ DO NOT LOOK AT [THIS](./single_star.cpp) UNTIL YOU HAVE TRIED TO WRITE THE CODE 
 ### Related projects
 
 * Multiple stars
+* Walkies
 
 ## Multiple stars
 
@@ -104,3 +105,14 @@ The animation cycle is:
 ### Source code
 
 DO NOT LOOK AT [THIS](./fizzle.cpp) UNTIL YOU HAVE TRIED TO WRITE THE CODE YOURSELF! With that said, don't feel bad about taking a peek and reading the comments.
+
+## Walkies
+
+`Walkies` is based on `single_star`. You'll create this:
+
+![walkies](./walkies.gif)
+
+The inter character delay in this one must be slower - I used 100 milliseconds.
+
+DO NOT LOOK AT [THIS](./walkies.cpp) UNTIL YOU HAVE TRIED TO WRITE THE CODE YOURSELF! With that said, don't feel bad about taking a peek and reading the comments.
+
