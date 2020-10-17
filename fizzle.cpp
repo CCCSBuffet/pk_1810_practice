@@ -29,6 +29,8 @@ int main() {
 	const int32_t WIDTH = 60;
 	//	Update the screen about 20 times per second
 	const int32_t MILLISECONDS_DELAY = 50;
+	// Chance a space will become a .
+	const int32_t ANIMATION_CHANCE = 20;
 
 	/*	This creates an empty string that will used to
 		store the characters that are animating. The animation
@@ -61,7 +63,7 @@ int main() {
 						random amount of time to pass before it becomes
 						non-blank.
 					*/
-					if (rand() % 10 == 0)
+					if (rand() % ANIMATION_CHANCE == 0)
 						positions.at(i) = '.';
 					break;
 
