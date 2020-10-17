@@ -60,6 +60,27 @@ this_thread::sleep_for(chrono::milliseconds(16));
 
 will cause your program to sleep for at least 16 milliseconds but maybe a tad more. The value 16 milliseconds is chosen as it is 1/60th of a second.
 
+### Output without new lines
+
+You're used to this:
+
+```c++
+cout << "Foo" << endl;
+```
+
+The `endl` is doing two things for you:
+
+1. Of course, it's giving you a new line but it is also
+2. Triggering the output to actually render on your console
+
+Console output is buffered for efficiency. Actual output only happens when new lines are emitted. In this program, we're not using new lines at all. Instead, after text is output, we'll emit only a carriage return ('\r').
+
+To force output (without a new line), do:
+
+```c++
+cout.flush();
+```
+
 ### Source code
 
 DO NOT LOOK AT [THIS](./single_star.cpp) UNTIL YOU HAVE TRIED TO WRITE THE CODE YOURSELF! With that said, don't feel bad about taking a peek and reading the comments.
