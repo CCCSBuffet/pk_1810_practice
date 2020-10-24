@@ -42,16 +42,10 @@ int main() {
 		*/
 		cout << setw(WIDTH) << " " << '\r';
 
-		/*	Column 0 is a special case because we're using
-			setw() to do the spacing. If we instead used a
-			for loop to directly print spaces, 0 would not
-			be a special case.
+		/*	Use setw(column) to embed our single star at the end of
+			the appropriate number of spaces.
 		*/
-		if (!column) {
-			cout << "*\r";
-		} else {
-			cout << setw(column) << "*" << '\r';
-		}
+		cout << setw(column) << "*" << '\r';
 
 		/*	The call to cout.flush() is critical because output
 			to cout is *buffered*. No characters are emitted until
