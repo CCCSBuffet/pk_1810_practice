@@ -66,6 +66,11 @@ const Vec2d GRAVITY(0.0, -9.8);
 	The second argument is the stream input cast as a bool. This leverages
 	the stream input returning an object or nullptr (on failure). Example:
 		SafeStreamInput(cin, bool(cin >> variable));
+
+	The choice of throwing a string may seem like overkill or slow. I would
+	point out that conversion errors should be rare so throwing exceptions
+	will be rare. Certainly, detecting an EOF should be very rare, likely
+	to happen just once.
 */
 
 void SafeStreamInput(istream & s, bool b) {
@@ -80,11 +85,10 @@ void SafeStreamInput(istream & s, bool b) {
 
 int main() {
 	double powder, angle;
-	bool keep_going = true;
 
 	srand((uint32_t) time(nullptr));
 
-	while(keep_going) {
+	while(true) {
 		try {
 			cout << "Enter angle (degrees):  ";
 			SafeStreamInput(cin, bool(cin >> angle));
