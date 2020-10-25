@@ -257,3 +257,5 @@ The project properties in `xcode` and `Visual Studio` allow for adding command l
 ### Common mistake
 
 Things can end in tears (EOT) if you attempt to use an argument that isn't there. So, don't do that. Check `argc` to determine if any particular index into `argv` is valid or not.
+
+
