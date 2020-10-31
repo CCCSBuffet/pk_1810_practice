@@ -252,11 +252,66 @@ hyde pk_1810_practice $>
 
 ### How do you get to command line arguments if you are not using the command line?
 
-The project properties in `xcode` and `Visual Studio` allow for adding command line aguments. It isn't as convenient as using a command line, but it can be done and makes testing programs easier.
+The project properties in `xcode` and `Visual Studio` allow for adding command line aguments. It isn't as convenient as using a command line, but it can be done and makes testing programs easier. In `xcode`, edit the `Run / Debug` scheme. In `Visual Studio`, edit the project's properties under `Debugging`.
 
 ### Common mistake
 
 Things can end in tears (EOT) if you attempt to use an argument that isn't there. So, don't do that. Check `argc` to determine if any particular index into `argv` is valid or not.
+
+### SAFE input from `cin`
+
+Try this program:
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+	int i = 0;
+	while (i != 10) {
+		cout << "Enter a number: ";
+		cin >> i;
+	}
+	return 0;
+}
+```
+
+What could possibly go wrong? This program will plainly loop until you enter 10.
+
+```text
+hyde pk_1810_practice $> ./a.out
+Enter a number: 5
+Enter a number: 6
+Enter a number: 9
+Enter a number: 10
+hyde pk_1810_practice $>
+```
+
+Run the program again, and enter `a` instead of a number. Prepare to terminate the program with extraordinary means.
+
+How about this, create a text file (`numbers.txt`) with perfectly good input. Such as:
+
+```text
+1
+2
+3
+4
+```
+
+Then run the program using redirected input.
+
+```text
+hyde pk_1810_practice $> ./a.out < numbers.txt
+```
+
+Again, you have to kill the program.
+
+The problem is that when a `cin` fails to convert input to the type you've asked it to, certain error bits inside `cin` get set and they don't get unset. While the error bits are turned on, future attempts to use `cin` fail immediately.
+
+This mini-project is likely too advanced for you to attempt yourself. Instead read the source code located [here](./safe_stream_input.cpp).
+
+Feel free to use this code in your projects when using stream input and *you're interested in ensuring that conversion failures don't hurt you*.
 
 ## Problem 1 from [codewars.com](https://www.codewars.com)
 
@@ -283,3 +338,21 @@ pkivolowitz@jekyl pk_1810_practice %
 ### Source code
 
 The source code is [here](./pairs.cpp), but you should try to write this yourself.
+
+## Problem 2 from [codewars.com](https://www.codewars.com)
+
+Inspired by a kata on codewars.com...
+
+Write a program that determines whether or not a number is a [Narcissistic Number](https://en.wikipedia.org/wiki/Narcissistic_number). 
+
+From codewars.com, "A Narcissistic Number is a positive number which is the sum of its own digits, each raised to the power of the number of digits in a given base. In this Kata, we will restrict ourselves to decimal (base 10)."
+
+codewars.com provides an example:
+
+153 is a narcissistic number because it has 3 digits and each individual digit raised to the 3rd power, added together, equals the original number. As shown next:
+
+```text
+1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153
+```
+
+The codewars.com project creates just one function, and promises that only valid input will be passed to it. Here, you'll write a full program and must screen out and otherwise handle bad input.
