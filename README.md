@@ -355,4 +355,9 @@ codewars.com provides an example:
 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153
 ```
 
-The codewars.com project creates just one function, and promises that only valid input will be passed to it. Here, you'll write a full program and must screen out and otherwise handle bad input.
+The codewars.com project creates just one function, and promises that only valid input will be passed to it. Here, you'll write a full program and must screen out and otherwise handle bad input. This might be a good place to practice with `SafeStreamINput()`.
+
+### Source code
+
+The source code is [here](./narc.cpp), but you should try to write this yourself.
+
