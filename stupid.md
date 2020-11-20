@@ -5,10 +5,10 @@ This program will determine if an input number is a multiple of three. Of course
 The needlessly complex algorithm is this:
 
     While the number of digits in a string is larger than one:
-	    Sum up the value of the digits
-		Replace the old value of the string with the 
-		string version of the sum.
-	If the single digit remaining is 0, 3, 6 or 9 the original was a multiple of three.
+        Sum up the value of the digits
+        Replace the old value of the string with the 
+        string version of the sum.
+    If the single digit remaining is 0, 3, 6 or 9 the original was a multiple of three.
 
 For example, test "6792":
 
@@ -25,21 +25,19 @@ The solution code contains the use of:
 
 Here is sample output:
 
-```text
-pkivolowitz@jekyl pk_1810_practice % ./a.out
-Enter a number to check (or "quit"): badinput
-Enter a number to check (or "quit"): 6792
-Using a needlessly complex method, 6792 has been shown to be a multiple of three
-Enter a number to check (or "quit"): 0
-Using a needlessly complex method, 0 has been shown to be a multiple of three
-Enter a number to check (or "quit"): 6793
-Using a needlessly complex method, 6793 has been shown not to be a multiple of three
-Enter a number to check (or "quit"): 12345678901234567890
-Using a needlessly complex method, 12345678901234567890 has been shown to be a multiple of three
-Enter a number to check (or "quit"): 12345678901234567891
-Using a needlessly complex method, 12345678901234567891 has been shown not to be a multiple of three
-Enter a number to check (or "quit"): quit
-```
+    pkivolowitz@jekyl pk_1810_practice % ./a.out
+    Enter a number to check (or "quit"): badinput
+    Enter a number to check (or "quit"): 6792
+    Using a needlessly complex method, 6792 has been shown to be a multiple of  three
+    Enter a number to check (or "quit"): 0
+    Using a needlessly complex method, 0 has been shown to be a multiple of  three
+    Enter a number to check (or "quit"): 6793
+    Using a needlessly complex method, 6793 has been shown not to be a  multiple of three
+    Enter a number to check (or "quit"): 12345678901234567890
+    Using a needlessly complex method, 12345678901234567890 has been shown to  be a multiple of three
+    Enter a number to check (or "quit"): 12345678901234567891
+    Using a needlessly complex method, 12345678901234567891 has been shown not  to be a multiple of three
+    Enter a number to check (or "quit"): quit
 
 ## Source code
 

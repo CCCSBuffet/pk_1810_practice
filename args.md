@@ -49,7 +49,7 @@ hyde pk_1810_practice $>
 
 `args2.cpp` shows enumerating command line arguments in a more advanced way and serves only as a teaser for your future understanding of scary pointers. Hint: pointers are not scary.
 
-## How do you get to command line arguments if you are not using the command line?
+## How you get to command line arguments if you are not using the command line
 
 The project properties in `xcode` and `Visual Studio` allow for adding command line aguments. It isn't as convenient as using a command line, but it can be done and makes testing programs easier. In `xcode`, edit the `Run / Debug` scheme. In `Visual Studio`, edit the project's properties under `Debugging`.
 
