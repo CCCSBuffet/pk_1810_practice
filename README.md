@@ -9,167 +9,10 @@ The projects described and contained here are meant for fun practice. You won't 
 * [Single Star](./single_star.md)
 * [Cylon Effect](./cylon.md)
 * [Walkies](./walkies.md)
-
-## Fizzle
-
-Taking a different approach, `fizzle` produces this:
-
-![fizzle](./fizzle.gif)
-
-`fizzle` starts with all blanks in a long string. Whenever a position is blank, there is a 1 in 20 chance it will start animating.
-
-The animation cycle is:
-
-* `' '`
-* `'.'`
-* `'o'`
-* `'0'`
-* `'O'`
-* `' '` (i.e. repeat)
-
-One way of handling the advancement in the cycle of characters is with a `switch` statement. The transition from `' '` to `'.'` (based on a one-in-twenty) chance can be handled nicely right in the `' '` case.
-
-These are the include files I used:
-
-```c++
-#include <cinttypes>
-#include <chrono>
-#include <thread>
-#include <string>
-#include <vector>
-#include <ctime>
-```
-
-`<ctime>` is used to get access to the `time()` function which can be used to seed the old-style random number generator.
-
-### Source code
-
-DO NOT LOOK AT [THIS](./fizzle.cpp) UNTIL YOU HAVE TRIED TO WRITE THE CODE YOURSELF! With that said, don't feel bad about taking a peek and reading the comments.
-
-## A stupidly complex way to tell if a number is a multiple of three
-
-This program will determine if an input number is a multiple of three. Of course, this can be done simply by checking the value of the number modded with the literal 3. But what fun would that be?
-
-The needlessly complex algorithm is this:
-
-    While the number of digits in a string is larger than one:
-	    Sum up the value of the digits
-		Replace the old value of the string with the 
-		string version of the sum.
-	If the single digit remaining is 0, 3, 6 or 9 the original was a multiple of three.
-
-For example, test "6792":
-
-* sum of digits in "6792" is 24
-* sum of digits in "24" is 6
-* "6" is one of the special values
-
-The solution code contains the use of:
-
-* user defined functions
-* a range-based for loop (c++11 and later required)
-* a char as a small integer
-* checking for end-of-file with `getline()` and how to enter an EOF on Mac and Windows
-
-Here is sample output:
-
-```text
-pkivolowitz@jekyl pk_1810_practice % ./a.out
-Enter a number to check (or "quit"): badinput
-Enter a number to check (or "quit"): 6792
-Using a needlessly complex method, 6792 has been shown to be a multiple of three
-Enter a number to check (or "quit"): 0
-Using a needlessly complex method, 0 has been shown to be a multiple of three
-Enter a number to check (or "quit"): 6793
-Using a needlessly complex method, 6793 has been shown not to be a multiple of three
-Enter a number to check (or "quit"): 12345678901234567890
-Using a needlessly complex method, 12345678901234567890 has been shown to be a multiple of three
-Enter a number to check (or "quit"): 12345678901234567891
-Using a needlessly complex method, 12345678901234567891 has been shown not to be a multiple of three
-Enter a number to check (or "quit"): quit
-```
-
-### Source code
-
-DO NOT LOOK AT [THIS](./dumb_mod_three.cpp) UNTIL YOU HAVE TRIED TO WRITE THE CODE YOURSELF! With that said, don't feel bad about taking a peek and reading the comments.
-
-## Learning to use command line arguments
-
-If you are learning C++ using an IDE like `xcode` or `Visual Studio` you may not have used the command line directly as of yet. Being able to use the command line is a valuable job skill and greatly expands the flexibility of programs that you may write. Well, maybe I'm being generous with the `Windows` command line...
-
-Writing programs that can make use of arguments from the command line lies in the ability to customize the operation of the program varying from invocation to invocation.
-
-### `main()`
-
-You may have seen this:
-
-```c++
-int main() {
-}
-```
-
-This is not the whole story however. The complete signature of the `main()` function is this:
-
-```c++
-int main(int argc, char * argv[]) {
-}
-```
-
-The parameters that are passed to `main()` are the arguments specified on the command line when the program is run (prepended with the name of the program being run).
-
-The syntax of `char * argv[]` means that `argv` is an array of *pointers* to characters. *Pointer* is a fancy way of saying *address*. Everything in a running program's memory space has an address. It isn't important to master *pointers* right now. It is worth mentioning that *pointers* seem to scare a lot of people, but when you realize that everything is an *address* they really aren't that scary.
-
-### Source code
-
-Rather than ask you to write a program to enumerate a program's command line arguments, I'll just show you - a couple of ways - with explanation.
-
-[Method 1](./args1.cpp)
-
-[Method 2](./args2.cpp)
-
-Here is a sample of outputs of either program:
-
-```text
-hyde pk_1810_practice $> ./a.out
-Argument [  0] is ./a.out
-hyde pk_1810_practice $> ./a.out pokwrf pokwrfwwrfwrf "powpok pok pok pok"
-Argument [  0] is ./a.out
-Argument [  1] is pokwrf
-Argument [  2] is pokwrfwwrfwrf
-Argument [  3] is powpok pok pok pok
-hyde pk_1810_practice $>
-```
-
-`args1.cpp` shows the basic usage of command line arguments.
-
-`args2.cpp` shows enumerating command line arguments in a more advanced way and serves only as a teaser for your future understanding of scary pointers. Hint: pointers are not scary.
-
-### How do you get to command line arguments if you are not using the command line?
-
-The project properties in `xcode` and `Visual Studio` allow for adding command line aguments. It isn't as convenient as using a command line, but it can be done and makes testing programs easier. In `xcode`, edit the `Run / Debug` scheme. In `Visual Studio`, edit the project's properties under `Debugging`.
-
-### Common mistake
-
-Things can end in tears (EOT) if you attempt to use an argument that isn't there. So, don't do that. Check `argc` to determine if any particular index into `argv` is valid or not.
-
-## Practice using `argc` and `argv`
-
-Write a program that will read the contents of a file that you specify on the command line.
-
-Here's an outline:
-
-* Vet the existence of `argv[1]`
-* If valid, attempt to use it as a file name in an `ifstream` open.
-* If the file is incorrectly opened, don't do the rest.
-* Loop while getting lines from the file, printing each one.
-* Close the file.
-
-[Here](./readfile.cpp) is the source code to my solution if you want to compare. In addition to showing a use of `argc` and `argv`, the program models three good practices.
-
-1. Only one `return` statement in a function.
-2. Use of `perror()`.
-3. Use of `cerr`.
-4. Setting alternate values to return from the program.
+* [Fizzle](./fizzle.md)
+* [Stupid Multiple of Three](./stupid.md)
+* [Learning to Use Command Line Arguments](./args.md) - just lessons
+* [Practice Using Command Line Arguments](./args_practice.md)
 
 ## Follow up - print the file backwards
 
@@ -180,7 +23,6 @@ To reverse a string, you'll need `<algorithm>` and a function called, wait for i
 There's a bit of a trick here to avoid warnings *and* not cause errors in the loop enumerating the vector backwards. `vector` `.size()` returns a `size_t` which is an `uint64_t` - unsigned. So, if you made a `for` loop that stopped at `counter >= 0` you're in for trouble because an unsigned integer is **always** greater than or equal to zero.
 
 There are several ways to avoid this. The [solution code](./printbackwards.cpp) shows just one of these ways.
-
 
 ## SAFE input from `cin`
 
