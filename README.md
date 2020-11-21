@@ -18,5 +18,5 @@
 
 | Project | Comment |
 | ------- | ------- |
-| Command Line Arguments](./args.md) | Explanation of, and two ways to enumerate `argv` |
+| [Command Line Arguments](./args.md) | Explanation of, and two ways to enumerate `argv` |
 | [Safe Input From `cin`](./cin.md) | Reusuable. `try`, `catch` solves common problem |
