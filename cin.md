@@ -45,7 +45,7 @@ Then run the program using redirected input.
 hyde pk_1810_practice $> ./a.out < numbers.txt
 ```
 
-Again, you have to kill the program.
+Again, you have to kill the program manually.
 
 The problem is that when a `cin` fails to convert input to the type you've asked it to, certain error bits inside `cin` get set and they don't get unset. While the error bits are turned on, future attempts to use `cin` fail immediately.
 

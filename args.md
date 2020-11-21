@@ -56,3 +56,25 @@ The project properties in `xcode` and `Visual Studio` allow for adding command l
 ## Common mistake
 
 Things can end in tears (EOT) if you attempt to use an argument that isn't there. So, don't do that. Check `argc` to determine if any particular index into `argv` is valid or not.
+
+## Data structure
+
+`argv` is an array of pointers to C strings. The final member of `argv` is a `nullptr` or `NULL` in C.
+
+Given a command line:
+
+```text
+prog foo bar
+```
+
+`argc` would be 3. `argv` would be an array for 4 pointers looking like:
+
+![argv](./argv.png)
+
+(where "name of program" is "prog").
+
+Notice a synonym of pointer is *address of*.
+
+## Implementation
+
+`argc` and `argv` are constructed by the *system call* that is launching the program. That is, one of the steps in starting a program is preparing argc and argv and passing the results as the paramters to your `main()`.
